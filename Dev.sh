@@ -18,12 +18,12 @@ if [ $var1 = 5 ]; then
 
 else
         echo " the value type is not equal to 5: $var1 "
-        exit 1
+       
 fi
 
 if [ $choicevalue = "Y"  -o  $choicevalue = "y" ] ; then
                 function1
          else
                 echo " your choice is 'NO' "
-                exit 2
+              
 fi
