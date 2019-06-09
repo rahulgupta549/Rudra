@@ -13,7 +13,7 @@ read -p " enter the value of A: " var1
 
 read -p " enter the option [Y/N] " choicevalue
 
-if [ $var1 == 5 ]; then
+if [ $var1 = 5 ]; then
         echo " the input value is $var1 "
 
 else
