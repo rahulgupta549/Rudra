@@ -1,8 +1,5 @@
 node{
 
-stage('git checkout'){
-checkout scm
-}
 stage('cloning github'){
 	git credentialsId: 'f23b2030-4f19-4e80-829a-dad795e7f3be', url: 'https://github.com/rahulgupta549/Rudra.git'
 	sh label: '', script: '''cd /var/tmp
@@ -19,6 +16,6 @@ stage ('Notification'){
 	mail from: "rahul549.007@gmail.com",
 		 to: "rahulgupta549@hotmail.com",
 		 subject: "ansbile deployment status",
-		 body: "Jenkins jobs ${env.JOB_NAME} -build ${env.BUILD_NUMBER} ${currentBuild.currentResult} ${env.JOB_URL} complete"
-	)
+		 body: "jenkins job ${env.JOB_NAME} -build ${env.BUILD_NUMBER} ${currentBuild.currentResult} ${env.JOB_URL} complete"
+	}
 }
