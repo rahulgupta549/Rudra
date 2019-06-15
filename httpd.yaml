@@ -1,0 +1,27 @@
+---
+ - hosts: Yuvaan
+   become: true
+   tasks:
+    - name: "Installing httpd package"
+      yum: name=httpd state=installed
+      register: httpd_status
+
+    - name: "starting httpd service"
+      service: name=httpd enabled=yes state=started
+
+    - name: "updating httpd conf"
+      lineinfile: dest=/etc/httpd/conf/httpd.conf state=present regexp="^Listen" line="Listen 8080"
+      when: httpd_status|success
+      notify:
+        - httpd_restart
+
+    - name: "copy index.html"
+      copy: src=index.html dest=/var/www/html/index.html
+      when: httpd_status|success
+      notify:
+        - httpd_restart
+
+
+   handlers:
+    - name: "httpd_restart"
+      service: name=httpd state=restarted
