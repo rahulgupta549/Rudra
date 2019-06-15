@@ -19,6 +19,6 @@ stage ('Notification'){
 	mail from: "rahul549.007@gmail.com"
 		 to: "rahulgupta549@hotmail.com"
 		 subject: "ansbile deployment status"
-		 body: "Jenkins jobs ${env.JOB_NAME"} - build ${env.BUILD_NUMBER} ${currentBuild.currentResult} ${env.JIB_URL} complete"
+		 body: "Jenkins jobs ${env.JOB_NAME"} - build ${env.BUILD_NUMBER} ${currentBuild.currentResult} ${env.JOB_URL} complete"
 	)
 }
