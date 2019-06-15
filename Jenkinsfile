@@ -16,9 +16,9 @@ stage('cloning github'){
 	ansible-playbook --syntax-check $ansibleplaybook'''
 	}
 stage ('Notification'){
-	mail from: "rahul549.007@gmail.com"
-		 to: "rahulgupta549@hotmail.com"
-		 subject: "ansbile deployment status"
-		 body: "Jenkins jobs ${env.JOB_NAME"} - build ${env.BUILD_NUMBER} ${currentBuild.currentResult} ${env.JOB_URL} complete"
+	mail from: "rahul549.007@gmail.com",
+		 to: "rahulgupta549@hotmail.com",
+		 subject: "ansbile deployment status",
+		 body: "Jenkins jobs ${env.JOB_NAME} -build ${env.BUILD_NUMBER} ${currentBuild.currentResult} ${env.JOB_URL} complete"
 	)
 }
