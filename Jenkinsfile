@@ -9,7 +9,7 @@ stage('cloning github'){
 	'''
 	}
 	stage ('AnsiblePlaybook'){
-	sh label: '', script: '''cd /var/tmp
+	sh label: '', script: '''cd /var/tmp/Rudra
 	ansible-playbook --syntax-check $ansibleplaybook'''
 	}
 stage ('Notification'){
